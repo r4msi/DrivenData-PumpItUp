@@ -279,7 +279,7 @@ inspect_str <- function(variable, verbose = FALSE, distance = 1) {
 
 It took 4:50 mins. 5 vars * 75k. Remind that subvillage had 22k levels. 
 
-For a single var like installer (2100k categories) lats 10 seg.
+For a single var like installer (2100k categories) lasts 10 seg.
 
 ```{r}
 # large_factors <- c("funder", "installer",  "subvillage", "ward", "scheme_name")
