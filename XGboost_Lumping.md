@@ -158,9 +158,9 @@ data %>%
   ggplot(.) + geom_mosaic(aes(product(payment), fill=factor(status_group))) + coord_flip()
 ```
 
-![plot of chunk eda](C:/Users/Manu/Desktop/UCM/3machinelearning/DrivenData-PumpItUp/Figures/f9.png)
-![plot of chunk eda](C:/Users/Manu/Desktop/UCM/3machinelearning/DrivenData-PumpItUp/Figures/f7.png)
-![plot of chunk eda](C:/Users/Manu/Desktop/UCM/3machinelearning/DrivenData-PumpItUp/Figures/f8.png)
+![](Figures/f9.png)
+![](Figures/f7.png)
+![](Figures/f8.png)
 
 
 Some insights from the EDA and the graph:
