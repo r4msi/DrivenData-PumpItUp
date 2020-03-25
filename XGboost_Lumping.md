@@ -122,16 +122,16 @@ show_plot(x)
 #summary(Filter(is.numeric, data))
 ```
 
-![plot of chunk eda](C:/Users/Manu/Desktop/UCM/3machinelearning/DrivenData-PumpItUp/Figures/f1.png)
+![](Figures/f1.png)
 
-![plot of chunk eda](C:/Users/Manu/Desktop/UCM/3machinelearning/DrivenData-PumpItUp/Figures/f2.png)
+![](Figures/f2.png)
 
-![plot of chunk eda](C:/Users/Manu/Desktop/UCM/3machinelearning/DrivenData-PumpItUp/Figures/f3.png)
+![](Figures/f3.png)
 
-![plot of chunk eda](C:/Users/Manu/Desktop/UCM/3machinelearning/DrivenData-PumpItUp/Figures/f4.png)
+![](Figures/f4.png)
 
-![plot of chunk eda](C:/Users/Manu/Desktop/UCM/3machinelearning/DrivenData-PumpItUp/Figures/f5.png)
-![plot of chunk eda](C:/Users/Manu/Desktop/UCM/3machinelearning/DrivenData-PumpItUp/Figures/f6.png)
+![](Figures/f5.png)
+![](Figures/f6.png)
 
 
 Some interesting graphs.
@@ -439,7 +439,7 @@ data %>%
   ggplot(., aes(construction_year, fill=construction_year_na)) + geom_histogram()
 ```
 
-![plot of chunk eda](C:/Users/Manu/Desktop/UCM/3machinelearning/DrivenData-PumpItUp/Figures/f10.png)
+![](Figures/f10.png)
 
 
 ## 3.4 Dummies
@@ -670,7 +670,7 @@ xgbcv$evaluation_log %>%
   
 ```
 
-![plot of chunk eda](C:/Users/Manu/Desktop/UCM/3machinelearning/DrivenData-PumpItUp/Figures/f11.png)
+![](Figures/f11.png)
 
 
 # 5. Test Model
@@ -771,7 +771,7 @@ head(importance,20)
 xgb.ggplot.importance(importance[1:21])
 ```
 
-![plot of chunk eda](C:/Users/Manu/Desktop/UCM/3machinelearning/DrivenData-PumpItUp/Figures/f12.png)
+![](Figures/f12.png)
 
 
 # 7. Submission
