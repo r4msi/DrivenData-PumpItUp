@@ -651,7 +651,43 @@ params <- list(booster = "gbtree", objective = "multi:softprob", num_class=3,eta
 Using the inbuilt xgb.cv function, let's calculate the best nround for this model. In addition, this function also returns CV error, which is an estimate of test error.
 
   * Other parameters were calculated in H2O with Rstudio Cloud (h2o.xgboost only available in linux and Mac) and h2o.grid() function. 
+  
+```{r}
+# Upload input_train/test to Rcloud.
+train <- readRDS(file = "h2o.RDS")
+test <- readRDS(file="h2o_test.RDS")
 
+y <- "status_group"
+x <- setdiff(names(trainHex), y) # Make sure y is a factor.
+
+library(h2o)
+h2o.init()
+trainHex = as.h2o(train, destination_frame = "train.hex")
+testHex = as.h2o(test, destination_frame = "test.hex")
+
+hyper_params <- list(ntrees = seq(300, 600, 50),
+                     learn_rate = seq(0.0001, 0.2, 0.0001),
+                     max_depth = seq(1, 20, 2),
+                     sample_rate = seq(0.5, 1.0, 0.1),
+                     col_sample_rate = seq(0.2, 1.0, 0.1),
+                     distribution = "multinomial",
+                     )
+                     
+search_criteria <- list(strategy = "RandomDiscrete",
+                        max_models = 10, 
+                        seed = 1)
+
+xgb_grid <- h2o.grid(algorithm = "xgboost",
+                     x = x, y = y,
+                     training_frame = train,
+                     nfolds = 5,
+                     seed = 1,
+                     hyper_params = hyper_params,
+                     search_criteria = search_criteria)
+                     
+grid <- h2o.getGrid(grid_id = xgb_grid@grid_id)
+```
+Here the optimal parameters:
 ```{r}
 # cv
 xgbcv <- xgb.cv( params = params, data = xx, nrounds = 1000, nfold = 5, showsd = T, stratified = T, print_every_n = 10, early_stop_round = 20, maximize = F)
