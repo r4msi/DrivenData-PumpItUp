@@ -681,7 +681,8 @@ xgb_grid <- h2o.grid(algorithm = "xgboost",
                      x = x, y = y,
                      training_frame = train,
                      nfolds = 5,
-                     seed = 1,
+                     fold_assignment = "Stratified",
+                     seed = 123456,
                      hyper_params = hyper_params,
                      search_criteria = search_criteria)
                      
