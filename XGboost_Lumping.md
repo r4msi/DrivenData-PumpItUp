@@ -731,9 +731,8 @@ xx <- xgb.DMatrix(data.matrix(train[,-2]), label=target)
 
 # Model train
 
-bb_tr <- xgboost(data = xx, max_depth = 17, eta = 0.02,
-                 subsample = 0.8, colsample_bytree = 0.5,
-                 min_child_weight = 1, nrounds = 471, num_class = 3,
+bb_tr <- xgboost(data = xx, max_depth = 15, eta = 0.03,
+                 subsample = 0.8, min_child_weight = 1, nrounds = 471, num_class = 3,
                  objective = "multi:softprob", maximize = FALSE)
 
 
@@ -778,11 +777,8 @@ target <- as.integer(target)-1
 xx <- xgb.DMatrix(data.matrix(input_train[,-2]), label=target)
   
 
-# it is not needed but with this one 0.8244 in DrivenData
-
-bb <- xgboost(data = xx, max_depth = 17, eta = 0.02,
-                 subsample = 0.8, colsample_bytree = 0.5,
-                 min_child_weight = 1, nrounds = 471, num_class = 3,
+bb <- xgboost(data = xx, max_depth = 15, eta = 0.03,
+                 subsample = 0.8, min_child_weight = 1, nrounds = 471, num_class = 3,
                  objective = "multi:softprob", maximize = FALSE, verbose = TRUE)
 
 
